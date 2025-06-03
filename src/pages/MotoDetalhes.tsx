@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bike, ArrowLeft, Heart, Share2, Phone, Mail } from "lucide-react";
@@ -96,7 +95,8 @@ const motosData = {
 
 const MotoDetalhes = () => {
   const { id } = useParams();
-  const moto = motosData[id as keyof typeof motosData];
+  const motoId = parseInt(id || '0', 10);
+  const moto = motosData[motoId as keyof typeof motosData];
 
   if (!moto) {
     return (
