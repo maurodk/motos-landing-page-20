@@ -1,8 +1,45 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Star, Zap, Shield, Users, Bike, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Motos populares do catálogo
+const motosPopulares = [
+  {
+    id: 2,
+    nome: "Adventure Pro 650",
+    marca: "RoadMaster",
+    categoria: "Adventure",
+    preco: "R$ 35.900",
+    cilindrada: "650cc",
+    potencia: "68 HP",
+    imagem: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop",
+    descricao: "A aventura te chama"
+  },
+  {
+    id: 3,
+    nome: "Sport R1",
+    marca: "VelocityBikes",
+    categoria: "Esportiva",
+    preco: "R$ 42.000",
+    cilindrada: "600cc",
+    potencia: "95 HP",
+    imagem: "https://images.unsplash.com/photo-1558264673-3dad0b3d5b85?w=400&h=300&fit=crop",
+    descricao: "Velocidade pura"
+  },
+  {
+    id: 1,
+    nome: "Thunder 300",
+    marca: "SpeedBike",
+    categoria: "Urbana",
+    preco: "R$ 18.500",
+    cilindrada: "300cc",
+    potencia: "28 HP",
+    imagem: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+    descricao: "Perfeita para cidade"
+  }
+];
 
 const Index = () => {
   return (
@@ -136,62 +173,228 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="sobre" className="relative py-24 bg-gradient-to-b from-black to-gray-900">
+      {/* Motos Populares Section */}
+      <section className="relative py-24 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                Por que MotoSpeed?
+                Motos Populares
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Mais de 15 anos dominando as estradas com tecnologia de ponta
+              Os modelos mais procurados pelos nossos clientes
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
-              <CardContent className="p-8 text-center">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
-                  <Zap className="h-8 w-8 text-white" />
+            {motosPopulares.map((moto, index) => (
+              <Card key={moto.id} className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 hover:transform hover:scale-105">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={moto.imagem} 
+                    alt={moto.nome}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Hover Actions */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <Button size="sm" variant="ghost" className="bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 rounded-full w-10 h-10 p-0">
+                      <Heart className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" className="bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 rounded-full w-10 h-10 p-0" asChild>
+                      <Link to={`/moto/${moto.id}`}>
+                        <Eye className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {moto.categoria}
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors duration-300">
-                  Performance Extrema
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Motores de alta performance que entregam adrenalina pura em cada acelerada
-                </p>
-              </CardContent>
-            </Card>
+                
+                <CardContent className="p-6">
+                  <div className="text-center mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300 mb-1">
+                      {moto.nome}
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-2">{moto.marca}</p>
+                    <p className="text-orange-300 text-sm italic">{moto.descricao}</p>
+                  </div>
+                  
+                  <div className="flex justify-between text-sm text-gray-400 mb-4">
+                    <span className="flex items-center">
+                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                      {moto.cilindrada}
+                    </span>
+                    <span className="flex items-center">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                      {moto.potencia}
+                    </span>
+                  </div>
+                  
+                  <div className="text-center mb-4">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                      {moto.preco}
+                    </span>
+                  </div>
+                  
+                  <Button 
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/30 group" 
+                    asChild
+                  >
+                    <Link to={`/moto/${moto.id}`}>
+                      Ver Detalhes
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
-              <CardContent className="p-8 text-center">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
-                  Segurança Total
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Sistemas avançados de freios ABS e controle de tração para máxima proteção
-                </p>
-              </CardContent>
-            </Card>
+      {/* Market Stats Section */}
+      <section className="relative py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">
+              <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                Mercado em Movimento
+              </span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              O mercado de motocicletas no Brasil continua em crescimento acelerado
+            </p>
+          </div>
 
-            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
-              <CardContent className="p-8 text-center">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
-                  <Users className="h-8 w-8 text-white" />
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-orange-500/20 to-red-600/20 rounded-2xl p-6 border border-orange-500/30 group-hover:border-orange-500/60 transition-all duration-300">
+                <TrendingUp className="h-8 w-8 text-orange-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-2xl font-bold text-white mb-2">+23%</div>
+                <p className="text-gray-400 text-sm">Crescimento anual</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-2xl p-6 border border-green-500/30 group-hover:border-green-500/60 transition-all duration-300">
+                <Globe className="h-8 w-8 text-green-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-2xl font-bold text-white mb-2">2.1M</div>
+                <p className="text-gray-400 text-sm">Vendas no país</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-blue-500/20 to-cyan-600/20 rounded-2xl p-6 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-300">
+                <Award className="h-8 w-8 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-2xl font-bold text-white mb-2">#1</div>
+                <p className="text-gray-400 text-sm">Em satisfação</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 group-hover:border-purple-500/60 transition-all duration-300">
+                <Users className="h-8 w-8 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-2xl font-bold text-white mb-2">50K+</div>
+                <p className="text-gray-400 text-sm">Clientes ativos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="sobre" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                  15 Anos Dominando as Estradas
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                Desde 2009, a MotoSpeed tem sido pioneira em trazer as melhores motocicletas para o mercado brasileiro. 
+                Nossa paixão por duas rodas nos move a buscar constantemente a excelência.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-orange-400 mr-3" />
+                  <span className="text-gray-300">Atendimento 24/7 em todo território nacional</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
-                  Suporte VIP
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Assistência técnica 24/7 e rede de concessionárias em todo o Brasil
-                </p>
-              </CardContent>
-            </Card>
+                <div className="flex items-center">
+                  <Award className="h-5 w-5 text-orange-400 mr-3" />
+                  <span className="text-gray-300">Certificação ISO 9001 em qualidade</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="h-5 w-5 text-orange-400 mr-3" />
+                  <span className="text-gray-300">Mais de 50.000 motociclistas satisfeitos</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-600/20 rounded-3xl blur-xl"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1558264673-3dad0b3d5b85?w=600&h=400&fit=crop" 
+                alt="Motociclista na estrada" 
+                className="relative rounded-3xl w-full h-auto shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Innovation Section */}
+      <section className="relative py-20 bg-gradient-to-r from-orange-600/10 via-black to-red-600/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+              Tecnologia de Ponta
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            Nossas motocicletas incorporam as mais avançadas tecnologias do mercado mundial, 
+            proporcionando uma experiência de pilotagem incomparável.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Zap className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Injeção Eletrônica</h3>
+              <p className="text-gray-400 text-sm">Sistema avançado para máximo desempenho e economia</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Award className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Freios ABS</h3>
+              <p className="text-gray-400 text-sm">Segurança máxima em todas as condições</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">GPS Integrado</h3>
+              <p className="text-gray-400 text-sm">Navegação inteligente e conectividade total</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <TrendingUp className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Controle de Tração</h3>
+              <p className="text-gray-400 text-sm">Estabilidade e controle em qualquer terreno</p>
+            </div>
           </div>
         </div>
       </section>
@@ -230,9 +433,14 @@ const Index = () => {
                   MotoSpeed
                 </h3>
               </div>
-              <p className="text-gray-400">
+              <p className="text-gray-400 mb-4">
                 Transformando sonhos em realidade sobre duas rodas.
               </p>
+              <div className="text-gray-400 text-sm">
+                <p>📍 Av. das Motos, 1500 - São Paulo, SP</p>
+                <p>📞 (11) 9999-8888</p>
+                <p>✉️ contato@motospeed.com.br</p>
+              </div>
             </div>
             
             <div>
@@ -251,6 +459,7 @@ const Index = () => {
                 <li><a href="#sobre" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Sobre Nós</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Blog</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Carreiras</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Investidores</a></li>
               </ul>
             </div>
             
@@ -260,12 +469,20 @@ const Index = () => {
                 <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Central de Ajuda</a></li>
                 <li><a href="#contato" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Contato</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Garantia</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Termos de Uso</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">&copy; 2024 MotoSpeed. Dominando as estradas com estilo.</p>
+          <div className="border-t border-gray-800 mt-8 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 MotoSpeed. Dominando as estradas com estilo.</p>
+              <div className="flex space-x-6">
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Política de Privacidade</a>
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Termos de Serviço</a>
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Cookies</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
