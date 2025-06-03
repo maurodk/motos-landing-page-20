@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
@@ -423,64 +422,81 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer id="contato" className="bg-black border-t border-orange-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
+      <footer id="contato" className="relative bg-gray-900 border-t border-orange-500/30 mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div className="space-y-4">
+              <div className="flex items-center mb-6">
                 <Bike className="h-8 w-8 text-orange-500 mr-3" />
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                   MotoSpeed
                 </h3>
               </div>
-              <p className="text-gray-400 mb-4">
-                Transformando sonhos em realidade sobre duas rodas.
+              <p className="text-gray-300 text-base leading-relaxed">
+                Transformando sonhos em realidade sobre duas rodas há mais de 15 anos.
               </p>
-              <div className="text-gray-400 text-sm">
-                <p>📍 Av. das Motos, 1500 - São Paulo, SP</p>
-                <p>📞 (11) 9999-8888</p>
-                <p>✉️ contato@motospeed.com.br</p>
+              <div className="space-y-2 text-gray-300">
+                <p className="flex items-center">
+                  <span className="text-orange-400 mr-2">📍</span>
+                  Av. das Motos, 1500 - São Paulo, SP
+                </p>
+                <p className="flex items-center">
+                  <span className="text-orange-400 mr-2">📞</span>
+                  (11) 9999-8888
+                </p>
+                <p className="flex items-center">
+                  <span className="text-orange-400 mr-2">✉️</span>
+                  contato@motospeed.com.br
+                </p>
               </div>
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-4">Produtos</h4>
-              <ul className="space-y-2">
-                <li><Link to="/catalogo" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Catálogo</Link></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Motos Urbanas</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Adventure</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Esportivas</a></li>
+              <h4 className="font-bold text-white mb-6 text-lg">Produtos</h4>
+              <ul className="space-y-3">
+                <li><Link to="/catalogo" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Catálogo Completo</Link></li>
+                <li><a href="/catalogo?categoria=urbana" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Motos Urbanas</a></li>
+                <li><a href="/catalogo?categoria=adventure" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Adventure</a></li>
+                <li><a href="/catalogo?categoria=esportiva" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Esportivas</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-4">Empresa</h4>
-              <ul className="space-y-2">
-                <li><a href="#sobre" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Sobre Nós</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Blog</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Carreiras</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Investidores</a></li>
+              <h4 className="font-bold text-white mb-6 text-lg">Empresa</h4>
+              <ul className="space-y-3">
+                <li><a href="#sobre" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Sobre Nós</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Blog</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Carreiras</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Investidores</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-4">Suporte</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Central de Ajuda</a></li>
-                <li><a href="#contato" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Contato</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Garantia</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Termos de Uso</a></li>
+              <h4 className="font-bold text-white mb-6 text-lg">Suporte</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Central de Ajuda</a></li>
+                <li><a href="#contato" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Contato</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Garantia</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-base">Termos de Uso</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 MotoSpeed. Dominando as estradas com estilo.</p>
-              <div className="flex space-x-6">
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Política de Privacidade</a>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Termos de Serviço</a>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Cookies</a>
+          <div className="border-t border-gray-700 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-gray-400 text-base">
+                &copy; 2024 MotoSpeed. Dominando as estradas com estilo.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-base">
+                  Política de Privacidade
+                </a>
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-base">
+                  Termos de Serviço
+                </a>
+                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300 text-base">
+                  Cookies
+                </a>
               </div>
             </div>
           </div>
