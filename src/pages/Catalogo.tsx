@@ -1,8 +1,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bike, ArrowRight, Filter } from "lucide-react";
+import { Bike, ArrowRight, Filter, Search, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const motos = [
   {
@@ -68,96 +69,202 @@ const motos = [
 ];
 
 const Catalogo = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Todas");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredMotos = motos.filter(moto => {
+    const matchesCategory = selectedCategory === "Todas" || moto.categoria === selectedCategory;
+    const matchesSearch = moto.nome.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                         moto.marca.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const categories = ["Todas", ...Array.from(new Set(motos.map(moto => moto.categoria)))];
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black text-white">
+      {/* Animated Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-orange-900/10 via-black to-red-900/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,100,0,0.05),transparent_70%)]"></div>
+      </div>
+
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="relative z-50 bg-black/90 backdrop-blur-md border-b border-orange-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <Bike className="h-8 w-8 text-orange-600 mr-2" />
-              <Link to="/" className="text-2xl font-bold text-gray-900">MotoSpeed</Link>
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center group">
+              <div className="relative">
+                <Bike className="h-10 w-10 text-orange-500 group-hover:text-orange-400 transition-all duration-300 group-hover:rotate-12" />
+                <div className="absolute -inset-2 bg-orange-500/20 rounded-full blur group-hover:bg-orange-400/30 transition-all duration-300"></div>
+              </div>
+              <Link to="/" className="ml-3 text-3xl font-black bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent hover:from-orange-300 hover:to-red-400 transition-all duration-300">
+                MotoSpeed
+              </Link>
             </div>
+            
             <nav className="hidden md:flex space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-gray-900">Início</Link>
-              <Link to="/catalogo" className="text-orange-600 font-medium">Catálogo</Link>
-              <a href="#" className="text-gray-600 hover:text-gray-900">Sobre</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">Contato</a>
+              <Link to="/" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Início
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+              <Link to="/catalogo" className="text-orange-400 font-semibold relative">
+                Catálogo
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-orange-500"></span>
+              </Link>
+              <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Sobre
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Contato
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
             </nav>
+            
             <div className="flex items-center space-x-4">
-              <Button variant="ghost">Entrar</Button>
-              <Button>Contato</Button>
+              <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-orange-500/20 transition-all duration-300">
+                Entrar
+              </Button>
+              <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/50">
+                Contato
+              </Button>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-red-600 py-16">
+      <section className="relative py-20 bg-gradient-to-r from-orange-600/20 via-black to-red-600/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Nosso Catálogo
+          <h1 className="text-5xl md:text-6xl font-black mb-6">
+            <span className="bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
+              NOSSO ARSENAL
+            </span>
           </h1>
-          <p className="text-xl text-orange-100 max-w-2xl mx-auto">
-            Descubra a moto perfeita para seu estilo. Temos opções para todos os perfis de motociclistas.
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Cada moto é uma obra de arte em movimento. Encontre sua próxima paixão.
           </p>
+          
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Buscar por modelo ou marca..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 bg-black/50 border border-orange-500/30 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all duration-300"
+            />
+          </div>
         </div>
       </section>
 
       {/* Filters and Catalog */}
-      <section className="py-12">
+      <section className="relative py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Bar */}
-          <div className="flex flex-wrap gap-4 mb-8 items-center">
-            <Button variant="outline" size="sm">
-              <Filter className="h-4 w-4 mr-2" />
-              Filtros
-            </Button>
-            <Button variant="outline" size="sm">Todas</Button>
-            <Button variant="outline" size="sm">Urbana</Button>
-            <Button variant="outline" size="sm">Adventure</Button>
-            <Button variant="outline" size="sm">Esportiva</Button>
-            <Button variant="outline" size="sm">Cruiser</Button>
-            <Button variant="outline" size="sm">Off-Road</Button>
+          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(category)}
+                className={`rounded-full transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/30"
+                    : "border-orange-500/30 text-gray-300 hover:border-orange-500 hover:text-orange-400 hover:bg-orange-500/10"
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
           </div>
 
           {/* Motorcycles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {motos.map((moto) => (
-              <Card key={moto.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="aspect-[4/3] overflow-hidden">
+            {filteredMotos.map((moto, index) => (
+              <Card 
+                key={moto.id} 
+                className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 hover:transform hover:scale-105"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img 
                     src={moto.imagem} 
                     alt={moto.nome}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Hover Actions */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <Button size="sm" variant="ghost" className="bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 rounded-full w-10 h-10 p-0">
+                      <Heart className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" className="bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 rounded-full w-10 h-10 p-0" asChild>
+                      <Link to={`/moto/${moto.id}`}>
+                        <Eye className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {moto.categoria}
+                  </div>
                 </div>
-                <CardHeader>
+                
+                <CardHeader className="pb-3">
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-lg">{moto.nome}</CardTitle>
-                      <CardDescription className="text-sm text-gray-500">
-                        {moto.marca} • {moto.categoria}
+                      <CardTitle className="text-xl text-white group-hover:text-orange-400 transition-colors duration-300">
+                        {moto.nome}
+                      </CardTitle>
+                      <CardDescription className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        {moto.marca}
                       </CardDescription>
                     </div>
-                    <span className="text-lg font-bold text-orange-600">{moto.preco}</span>
+                    <span className="text-xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                      {moto.preco}
+                    </span>
                   </div>
                 </CardHeader>
+                
                 <CardContent className="pt-0">
-                  <div className="flex justify-between text-sm text-gray-600 mb-4">
-                    <span>{moto.cilindrada}</span>
-                    <span>{moto.potencia}</span>
+                  <div className="flex justify-between text-sm text-gray-400 mb-4">
+                    <span className="flex items-center">
+                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                      {moto.cilindrada}
+                    </span>
+                    <span className="flex items-center">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                      {moto.potencia}
+                    </span>
                   </div>
-                  <Button className="w-full" asChild>
+                  
+                  <Button 
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/30 group" 
+                    asChild
+                  >
                     <Link to={`/moto/${moto.id}`}>
                       Ver Detalhes
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* No Results */}
+          {filteredMotos.length === 0 && (
+            <div className="text-center py-16">
+              <div className="text-6xl mb-4">🏍️</div>
+              <h3 className="text-2xl font-bold text-gray-400 mb-2">Nenhuma moto encontrada</h3>
+              <p className="text-gray-500">Tente ajustar os filtros ou termo de busca</p>
+            </div>
+          )}
         </div>
       </section>
     </div>

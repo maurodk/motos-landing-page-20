@@ -1,29 +1,55 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Star, Users, Zap, Shield, Bike } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Star, Zap, Shield, Users, Bike, Play, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      {/* Header/Navigation */}
-      <header className="bg-white shadow-sm border-b">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-orange-900/20 via-black to-red-900/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,100,0,0.1),transparent_70%)]"></div>
+      </div>
+
+      {/* Header */}
+      <header className="relative z-50 bg-black/80 backdrop-blur-md border-b border-orange-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <Bike className="h-8 w-8 text-orange-600 mr-2" />
-              <h1 className="text-2xl font-bold text-gray-900">MotoSpeed</h1>
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center group">
+              <div className="relative">
+                <Bike className="h-10 w-10 text-orange-500 group-hover:text-orange-400 transition-all duration-300 group-hover:rotate-12" />
+                <div className="absolute -inset-2 bg-orange-500/20 rounded-full blur group-hover:bg-orange-400/30 transition-all duration-300"></div>
+              </div>
+              <h1 className="ml-3 text-3xl font-black bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                MotoSpeed
+              </h1>
             </div>
+            
             <nav className="hidden md:flex space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-gray-900">Início</Link>
-              <Link to="/catalogo" className="text-gray-600 hover:text-gray-900">Catálogo</Link>
-              <a href="#sobre" className="text-gray-600 hover:text-gray-900">Sobre</a>
-              <a href="#contato" className="text-gray-600 hover:text-gray-900">Contato</a>
+              <Link to="/" className="text-orange-400 font-semibold relative group">
+                Início
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+              <Link to="/catalogo" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Catálogo
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+              <a href="#sobre" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Sobre
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#contato" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Contato
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
             </nav>
+            
             <div className="flex items-center space-x-4">
-              <Button variant="ghost">Entrar</Button>
-              <Button asChild>
+              <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-orange-500/20 transition-all duration-300">
+                Entrar
+              </Button>
+              <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/50" asChild>
                 <Link to="/catalogo">Ver Motos</Link>
               </Button>
             </div>
@@ -32,170 +58,138 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-orange-50 to-red-100 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Sua próxima
-              <span className="text-orange-600"> aventura</span> te espera
+      <section className="relative min-h-screen flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"></div>
+        
+        {/* Background Image with Parallax Effect */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transform scale-110"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop')",
+            filter: "brightness(0.3) contrast(1.2)"
+          }}
+        ></div>
+
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="mb-8 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+              <span className="block bg-gradient-to-r from-white via-orange-200 to-red-400 bg-clip-text text-transparent">
+                VELOCIDADE
+              </span>
+              <span className="block bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
+                É LIBERDADE
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Descubra nossa coleção exclusiva de motocicletas. Desde modelos urbanos até aventuras off-road, 
-              temos a moto perfeita para seu estilo de vida.
+            
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Descubra a adrenalina pura com nossa coleção exclusiva de motocicletas. 
+              <span className="text-orange-400 font-semibold"> Cada curva é uma nova aventura.</span>
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3" asChild>
-                <Link to="/catalogo">
-                  Explorar Catálogo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-                Agendar Test Drive
-              </Button>
-            </div>
-            <div className="mt-8 flex items-center justify-center space-x-4 text-sm text-gray-500">
-              <div className="flex items-center">
-                <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                <span className="ml-1">4.9/5</span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+            <Button 
+              size="lg" 
+              className="group bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50" 
+              asChild
+            >
+              <Link to="/catalogo">
+                <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
+                Explorar Motos
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="group border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 bg-black/50 backdrop-blur-sm"
+            >
+              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              Ver em Ação
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center group cursor-pointer">
+              <div className="flex items-center justify-center mb-2">
+                <Star className="h-5 w-5 text-yellow-400 fill-current mr-1" />
+                <span className="text-3xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">4.9</span>
               </div>
-              <span>•</span>
-              <span>Mais de 500 motos vendidas</span>
-              <span>•</span>
-              <span>Garantia de 2 anos</span>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Avaliação dos Clientes</p>
+            </div>
+            <div className="text-center group cursor-pointer">
+              <div className="text-3xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300 mb-2">500+</div>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Motos Vendidas</p>
+            </div>
+            <div className="text-center group cursor-pointer">
+              <div className="text-3xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300 mb-2">15+</div>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Anos de Experiência</p>
             </div>
           </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown className="h-8 w-8 text-orange-400" />
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="sobre" className="py-20 bg-white">
+      <section id="sobre" className="relative py-24 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Por que escolher a MotoSpeed?
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                Por que MotoSpeed?
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Mais de 15 anos de experiência no mercado de motocicletas
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Mais de 15 anos dominando as estradas com tecnologia de ponta
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-orange-600" />
+            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
+              <CardContent className="p-8 text-center">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
+                  <Zap className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle>Performance Superior</CardTitle>
-                <CardDescription>
-                  Motores de alta performance e tecnologia de ponta para máxima potência
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="h-6 w-6 text-green-600" />
-                </div>
-                <CardTitle>Segurança</CardTitle>
-                <CardDescription>
-                  Sistemas avançados de freios ABS e controle de tração para sua proteção
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-blue-600" />
-                </div>
-                <CardTitle>Suporte Completo</CardTitle>
-                <CardDescription>
-                  Assistência técnica 24/7 e rede de concessionárias em todo o país
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              O que nossos clientes dizem
-            </h2>
-            <p className="text-xl text-gray-600">
-              Experiências reais de motociclistas apaixonados
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-md">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "Comprei minha primeira moto aqui e o atendimento foi excepcional. A moto é incrível e o pós-venda é perfeito!"
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors duration-300">
+                  Performance Extrema
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Motores de alta performance que entregam adrenalina pura em cada acelerada
                 </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold">
-                    C
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold">Carlos Silva</p>
-                    <p className="text-sm text-gray-500">Motociclista há 3 anos</p>
-                  </div>
-                </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
+            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
+              <CardContent className="p-8 text-center">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
+                  <Shield className="h-8 w-8 text-white" />
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "Qualidade excepcional e preços justos. Minha adventure é perfeita para minhas viagens pelo Brasil."
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+                  Segurança Total
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Sistemas avançados de freios ABS e controle de tração para máxima proteção
                 </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                    A
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold">Ana Costa</p>
-                    <p className="text-sm text-gray-500">Aventureira</p>
-                  </div>
-                </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
+            <Card className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
+              <CardContent className="p-8 text-center">
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
+                  <Users className="h-8 w-8 text-white" />
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "Suporte técnico excelente e equipe muito preparada. Recomendo para todos os motociclistas!"
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  Suporte VIP
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Assistência técnica 24/7 e rede de concessionárias em todo o Brasil
                 </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold">
-                    R
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold">Roberto Santos</p>
-                    <p className="text-sm text-gray-500">Motociclista profissional</p>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </div>
@@ -203,68 +197,75 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-orange-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Pronto para sua nova aventura?
+      <section className="relative py-24 bg-gradient-to-r from-orange-600 via-red-600 to-orange-700">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Pronto para a Aventura?
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
-            Explore nosso catálogo e encontre a moto dos seus sonhos
+          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+            Explore nosso catálogo e encontre a moto que vai mudar sua vida
           </p>
-          <Button size="lg" variant="secondary" className="text-lg px-8 py-3" asChild>
+          <Button 
+            size="lg" 
+            className="group bg-black text-white hover:bg-gray-900 font-bold px-10 py-4 rounded-full text-xl transform hover:scale-105 transition-all duration-300 shadow-2xl" 
+            asChild
+          >
             <Link to="/catalogo">
               Ver Catálogo Completo
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contato" className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer id="contato" className="bg-black border-t border-orange-500/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Bike className="h-6 w-6 text-orange-600 mr-2" />
-                <h3 className="text-xl font-bold">MotoSpeed</h3>
+                <Bike className="h-8 w-8 text-orange-500 mr-3" />
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                  MotoSpeed
+                </h3>
               </div>
               <p className="text-gray-400">
-                Sua paixão por motos começa aqui. Qualidade, performance e aventura.
+                Transformando sonhos em realidade sobre duas rodas.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Produtos</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/catalogo" className="hover:text-white">Catálogo</Link></li>
-                <li><a href="#" className="hover:text-white">Motos Urbanas</a></li>
-                <li><a href="#" className="hover:text-white">Adventure</a></li>
-                <li><a href="#" className="hover:text-white">Esportivas</a></li>
+              <h4 className="font-bold text-white mb-4">Produtos</h4>
+              <ul className="space-y-2">
+                <li><Link to="/catalogo" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Catálogo</Link></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Motos Urbanas</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Adventure</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Esportivas</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Empresa</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#sobre" className="hover:text-white">Sobre Nós</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Carreiras</a></li>
+              <h4 className="font-bold text-white mb-4">Empresa</h4>
+              <ul className="space-y-2">
+                <li><a href="#sobre" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Sobre Nós</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Blog</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Carreiras</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Suporte</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Central de Ajuda</a></li>
-                <li><a href="#contato" className="hover:text-white">Contato</a></li>
-                <li><a href="#" className="hover:text-white">Garantia</a></li>
+              <h4 className="font-bold text-white mb-4">Suporte</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Central de Ajuda</a></li>
+                <li><a href="#contato" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Contato</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Garantia</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 MotoSpeed. Todos os direitos reservados.</p>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p className="text-gray-400">&copy; 2024 MotoSpeed. Dominando as estradas com estilo.</p>
           </div>
         </div>
       </footer>
