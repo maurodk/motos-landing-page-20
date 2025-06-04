@@ -46,12 +46,12 @@ const motosPopulares = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 relative overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 relative overflow-x-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-full opacity-30 blur-3xl"></div>
-        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-red-100 to-pink-200 rounded-full opacity-25 blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-br from-yellow-100 to-orange-200 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/30 dark:to-indigo-800/30 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-red-100 to-pink-200 dark:from-red-900/30 dark:to-pink-800/30 rounded-full opacity-25 blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-yellow-900/30 dark:to-orange-800/30 rounded-full opacity-20 blur-3xl"></div>
       </div>
 
       {/* Header */}
@@ -151,11 +151,11 @@ const Index = () => {
       <ServicesBlock />
 
       {/* Enhanced Motos Populares Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-slate-100 to-blue-50 dark:bg-gray-800 overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-slate-100 to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/30 to-indigo-300/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-red-200/30 to-pink-300/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/30 to-indigo-300/30 dark:from-blue-800/30 dark:to-indigo-700/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-red-200/30 to-pink-300/30 dark:from-red-800/30 dark:to-pink-700/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -173,7 +173,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {motosPopulares.map((moto, index) => (
-              <Card key={moto.id} className="group bg-white/80 dark:bg-gray-900 border-2 border-gray-200/50 dark:border-gray-700 hover:border-blue-300/70 dark:hover:border-blue-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-700 hover:transform hover:scale-105 backdrop-blur-sm rounded-2xl">
+              <Card key={moto.id} className="group bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/50 dark:border-gray-700 hover:border-blue-300/70 dark:hover:border-blue-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-700 hover:transform hover:scale-105 backdrop-blur-sm rounded-2xl">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
                   <img 
                     src={moto.imagem} 
@@ -200,7 +200,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <CardContent className="p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+                <CardContent className="p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
                   <div className="text-center mb-6">
                     <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 mb-2">
                       {moto.nome}
@@ -209,7 +209,7 @@ const Index = () => {
                     <p className="text-blue-600 dark:text-blue-400 text-sm italic font-medium bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">{moto.descricao}</p>
                   </div>
                   
-                  <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-6 bg-gray-50 dark:bg-gray-800 p-4 rounded-xl">
+                  <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-6 bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl">
                     <span className="flex items-center font-medium">
                       <span className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></span>
                       {moto.cilindrada}
@@ -243,11 +243,11 @@ const Index = () => {
       </section>
 
       {/* Enhanced About Section */}
-      <section id="sobre" className="relative py-24 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50 dark:bg-gray-900 overflow-hidden">
+      <section id="sobre" className="relative py-24 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-40 left-40 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-indigo-300/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-40 right-40 w-96 h-96 bg-gradient-to-br from-red-200/20 to-pink-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 left-40 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-indigo-300/20 dark:from-blue-800/20 dark:to-indigo-700/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-40 right-40 w-96 h-96 bg-gradient-to-br from-red-200/20 to-pink-300/20 dark:from-red-800/20 dark:to-pink-700/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -266,19 +266,19 @@ const Index = () => {
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300 group">
+                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-700/80 transition-all duration-300 group">
                   <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-300 font-medium">Atendimento 24/7 em todo território nacional</span>
                 </div>
-                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300 group">
+                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-700/80 transition-all duration-300 group">
                   <div className="bg-gradient-to-br from-red-500 to-red-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300">
                     <Award className="h-6 w-6 text-white" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-300 font-medium">Certificação ISO 9001 em qualidade</span>
                 </div>
-                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300 group">
+                <div className="flex items-center bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl backdrop-blur-sm border border-blue-200/50 dark:border-gray-600 hover:bg-white/80 dark:hover:bg-gray-700/80 transition-all duration-300 group">
                   <div className="bg-gradient-to-br from-green-500 to-green-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300">
                     <Users className="h-6 w-6 text-white" />
                   </div>
@@ -288,7 +288,7 @@ const Index = () => {
             </div>
             
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 dark:from-blue-600/20 dark:to-indigo-600/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
               <div className="relative bg-white/20 dark:bg-gray-800/20 p-2 rounded-3xl backdrop-blur-sm border border-white/30 dark:border-gray-600/30">
                 <img 
                   src="https://images.unsplash.com/photo-1558264673-3dad0b3d5b85?w=600&h=400&fit=crop" 
@@ -302,11 +302,11 @@ const Index = () => {
       </section>
 
       {/* Enhanced Market Stats Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-slate-100 to-blue-50 dark:bg-gray-800 overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-slate-100 to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-200/30 to-cyan-300/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-br from-red-200/30 to-orange-300/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-200/30 to-cyan-300/30 dark:from-blue-800/30 dark:to-cyan-700/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-br from-red-200/30 to-orange-300/30 dark:from-red-800/30 dark:to-orange-700/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -322,7 +322,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center group">
-              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-red-200/50 dark:border-red-800/50 group-hover:border-red-300/70 dark:group-hover:border-red-600/70 group-hover:shadow-2xl group-hover:shadow-red-500/20 transition-all duration-500 hover:scale-105">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-red-200/50 dark:border-red-800/50 group-hover:border-red-300/70 dark:group-hover:border-red-600/70 group-hover:shadow-2xl group-hover:shadow-red-500/20 transition-all duration-500 hover:scale-105">
                 <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <TrendingUp className="h-8 w-8 text-white" />
                 </div>
@@ -332,7 +332,7 @@ const Index = () => {
             </div>
             
             <div className="text-center group">
-              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-200/50 dark:border-blue-800/50 group-hover:border-blue-300/70 dark:group-hover:border-blue-600/70 group-hover:shadow-2xl group-hover:shadow-blue-500/20 transition-all duration-500 hover:scale-105">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-200/50 dark:border-blue-800/50 group-hover:border-blue-300/70 dark:group-hover:border-blue-600/70 group-hover:shadow-2xl group-hover:shadow-blue-500/20 transition-all duration-500 hover:scale-105">
                 <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Globe className="h-8 w-8 text-white" />
                 </div>
@@ -342,7 +342,7 @@ const Index = () => {
             </div>
             
             <div className="text-center group">
-              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-200/50 dark:border-green-800/50 group-hover:border-green-300/70 dark:group-hover:border-green-600/70 group-hover:shadow-2xl group-hover:shadow-green-500/20 transition-all duration-500 hover:scale-105">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-200/50 dark:border-green-800/50 group-hover:border-green-300/70 dark:group-hover:border-green-600/70 group-hover:shadow-2xl group-hover:shadow-green-500/20 transition-all duration-500 hover:scale-105">
                 <div className="bg-gradient-to-br from-green-500 to-green-600 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Award className="h-8 w-8 text-white" />
                 </div>
@@ -352,7 +352,7 @@ const Index = () => {
             </div>
             
             <div className="text-center group">
-              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-200/50 dark:border-purple-800/50 group-hover:border-purple-300/70 dark:group-hover:border-purple-600/70 group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 hover:scale-105">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-200/50 dark:border-purple-800/50 group-hover:border-purple-300/70 dark:group-hover:border-purple-600/70 group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 hover:scale-105">
                 <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Users className="h-8 w-8 text-white" />
                 </div>
@@ -365,11 +365,11 @@ const Index = () => {
       </section>
 
       {/* Enhanced Innovation Section */}
-      <section className="relative py-24 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/70 dark:bg-gray-900 overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/70 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-32 right-32 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-300/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-32 left-32 w-80 h-80 bg-gradient-to-br from-red-200/20 to-pink-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-32 right-32 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-300/20 dark:from-blue-800/20 dark:to-cyan-700/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 left-32 w-80 h-80 bg-gradient-to-br from-red-200/20 to-pink-300/20 dark:from-red-800/20 dark:to-pink-700/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -385,7 +385,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-2 border-red-200/50 dark:border-red-800/50 rounded-3xl p-8 hover:border-red-300/70 dark:hover:border-red-600/70 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-red-200/50 dark:border-red-800/50 rounded-3xl p-8 hover:border-red-300/70 dark:hover:border-red-600/70 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <Zap className="h-8 w-8 text-white" />
               </div>
@@ -393,7 +393,7 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-400 font-medium">Sistema avançado para máximo desempenho e economia</p>
             </div>
             
-            <div className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-2 border-blue-200/50 dark:border-blue-800/50 rounded-3xl p-8 hover:border-blue-300/70 dark:hover:border-blue-600/70 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-blue-200/50 dark:border-blue-800/50 rounded-3xl p-8 hover:border-blue-300/70 dark:hover:border-blue-600/70 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <Award className="h-8 w-8 text-white" />
               </div>
@@ -401,7 +401,7 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-400 font-medium">Segurança máxima em todas as condições</p>
             </div>
             
-            <div className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-800/50 rounded-3xl p-8 hover:border-green-300/70 dark:hover:border-green-600/70 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-800/50 rounded-3xl p-8 hover:border-green-300/70 dark:hover:border-green-600/70 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <Globe className="h-8 w-8 text-white" />
               </div>
@@ -409,7 +409,7 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-400 font-medium">Navegação inteligente e conectividade total</p>
             </div>
             
-            <div className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-800/50 rounded-3xl p-8 hover:border-purple-300/70 dark:hover:border-purple-600/70 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-800/50 rounded-3xl p-8 hover:border-purple-300/70 dark:hover:border-purple-600/70 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
@@ -452,11 +452,11 @@ const Index = () => {
       </section>
 
       {/* Enhanced Footer */}
-      <footer id="contato" className="relative bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:bg-gray-900 border-t-4 border-gradient-to-r from-blue-500 to-red-500 overflow-hidden">
+      <footer id="contato" className="relative bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-t-4 border-gradient-to-r from-blue-500 to-red-500 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-indigo-300/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-red-200/20 to-pink-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-indigo-300/20 dark:from-blue-800/20 dark:to-indigo-700/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-red-200/20 to-pink-300/20 dark:from-red-800/20 dark:to-pink-700/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
