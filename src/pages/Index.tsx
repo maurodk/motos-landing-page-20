@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import ServicesBlock from "@/components/ServicesBlock";
 
 // Motos populares do catálogo
 const motosPopulares = [
@@ -43,42 +44,38 @@ const motosPopulares = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-white/90 via-blue-50/80 to-white/90 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-gray-900/90">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(3,81,160,0.05),transparent_70%)]"></div>
-      </div>
-
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Header */}
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white/80 dark:from-gray-900/20 dark:via-gray-900/60 dark:to-gray-900/80"></div>
-        
-        {/* Background Image with Parallax Effect */}
+      <section className="relative min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        {/* Background Image with Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center transform scale-110"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop')",
-            filter: "brightness(0.8) contrast(1.1)"
+            filter: "brightness(0.3)"
           }}
         ></div>
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-indigo-900/50 to-purple-900/70 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-gray-900/80"></div>
 
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="mb-8 animate-fade-in bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+          <div className="mb-8 animate-fade-in">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-              <span className="block text-blue-600 dark:text-blue-400">
+              <span className="block text-white drop-shadow-lg">
                 VELOCIDADE
               </span>
-              <span className="block text-blue-700 dark:text-blue-300">
+              <span className="block text-blue-400 drop-shadow-lg">
                 É LIBERDADE
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               Descubra a adrenalina pura com nossa coleção exclusiva de motocicletas. 
-              <span className="text-blue-600 dark:text-blue-400 font-semibold"> Cada curva é uma nova aventura.</span>
+              <span className="text-blue-400 font-semibold"> Cada curva é uma nova aventura.</span>
             </p>
           </div>
 
@@ -90,7 +87,7 @@ const Index = () => {
             >
               <Link to="/catalogo">
                 <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
-                Explorar Motos
+                Ver Motos
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </Button>
@@ -98,7 +95,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              className="group border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 bg-white/10 backdrop-blur-sm"
             >
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
               Ver em Ação
@@ -107,102 +104,70 @@ const Index = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center group cursor-pointer bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="text-center group cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div className="flex items-center justify-center mb-2">
-                <Star className="h-5 w-5 text-yellow-500 fill-current mr-1" />
-                <span className="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300">4.9</span>
+                <Star className="h-5 w-5 text-yellow-400 fill-current mr-1" />
+                <span className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">4.9</span>
               </div>
-              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Avaliação dos Clientes</p>
+              <p className="text-gray-200 group-hover:text-white transition-colors duration-300">Avaliação dos Clientes</p>
             </div>
-            <div className="text-center group cursor-pointer bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-              <div className="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300 mb-2">500+</div>
-              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Motos Vendidas</p>
+            <div className="text-center group cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 mb-2">500+</div>
+              <p className="text-gray-200 group-hover:text-white transition-colors duration-300">Motos Vendidas</p>
             </div>
-            <div className="text-center group cursor-pointer bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-              <div className="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300 mb-2">15+</div>
-              <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Anos de Experiência</p>
+            <div className="text-center group cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 mb-2">15+</div>
+              <p className="text-gray-200 group-hover:text-white transition-colors duration-300">Anos de Experiência</p>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+          <ChevronDown className="h-8 w-8 text-white" />
         </div>
       </section>
 
-      {/* Services Preview Section */}
-      <section className="relative py-20 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600">
-            Serviços Especializados
-          </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
-            Manutenção profissional para sua motocicleta com qualidade garantida e técnicos especializados
-          </p>
-          
-          <div className="grid md:grid-cols-4 gap-6 mb-12">
-            <div className="group bg-white/80 backdrop-blur-sm border border-blue-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-700 group-hover:rotate-12 transition-all duration-300">
-                <Award className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-blue-600 mb-2">Revisão Preventiva</h3>
-              <p className="text-gray-600 text-sm">Verificação completa para máximo desempenho</p>
-            </div>
+      {/* Services Section */}
+      <section id="servicos" className="relative py-24 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600 dark:text-blue-400">
+              Serviços Especializados
+            </h2>
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+              Manutenção profissional para sua motocicleta com qualidade garantida e técnicos especializados
+            </p>
             
-            <div className="group bg-white/80 backdrop-blur-sm border border-blue-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 group-hover:rotate-12 transition-all duration-300">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-blue-600 mb-2">Sistema Elétrico</h3>
-              <p className="text-gray-600 text-sm">Diagnóstico e reparo especializado</p>
-            </div>
-            
-            <div className="group bg-white/80 backdrop-blur-sm border border-blue-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 group-hover:rotate-12 transition-all duration-300">
-                <Globe className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-blue-600 mb-2">Motor</h3>
-              <p className="text-gray-600 text-sm">Manutenção e ajustes de motor</p>
-            </div>
-            
-            <div className="group bg-white/80 backdrop-blur-sm border border-blue-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-              <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-700 group-hover:rotate-12 transition-all duration-300">
-                <TrendingUp className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-blue-600 mb-2">Sistema de Freios</h3>
-              <p className="text-gray-600 text-sm">Segurança e performance garantidas</p>
-            </div>
-          </div>
-
-          <Button 
-            size="lg" 
-            className="group bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-600/40" 
-            asChild
-          >
-            <Link to="/servicos">
-              Ver Todos os Serviços
+            <Button 
+              size="lg" 
+              className="group bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-600/40 mb-12"
+              onClick={() => window.open('https://wa.me/5511999998888?text=Gostaria de saber mais sobre os serviços especializados', '_blank')}
+            >
+              Falar com Especialista
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          </Button>
+            </Button>
+          </div>
+          
+          <ServicesBlock />
         </div>
       </section>
 
       {/* Motos Populares Section */}
-      <section className="relative py-24 bg-gradient-to-b from-white/80 to-blue-50/60">
+      <section className="relative py-24 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600 dark:text-blue-400">
               Motos Populares
             </h2>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
               Os modelos mais procurados pelos nossos clientes
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {motosPopulares.map((moto, index) => (
-              <Card key={moto.id} className="group bg-white/80 backdrop-blur-sm border border-blue-200 hover:border-blue-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-500 hover:transform hover:scale-105">
+              <Card key={moto.id} className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-600/20 transition-all duration-500 hover:transform hover:scale-105">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img 
                     src={moto.imagem} 
@@ -231,14 +196,14 @@ const Index = () => {
                 
                 <CardContent className="p-6">
                   <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300 mb-1">
+                    <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300 mb-1">
                       {moto.nome}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-2">{moto.marca}</p>
-                    <p className="text-blue-700 text-sm italic">{moto.descricao}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{moto.marca}</p>
+                    <p className="text-blue-700 dark:text-blue-300 text-sm italic">{moto.descricao}</p>
                   </div>
                   
-                  <div className="flex justify-between text-sm text-gray-600 mb-4">
+                  <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
                     <span className="flex items-center">
                       <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                       {moto.cilindrada}
@@ -250,7 +215,7 @@ const Index = () => {
                   </div>
                   
                   <div className="text-center mb-4">
-                    <span className="text-2xl font-bold text-blue-600">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                       {moto.preco}
                     </span>
                   </div>
@@ -271,8 +236,48 @@ const Index = () => {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="sobre" className="relative py-20 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600">
+                15 Anos Dominando as Estradas
+              </h2>
+              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
+                Desde 2009, a MotoSpeed tem sido pioneira em trazer as melhores motocicletas para o mercado brasileiro. 
+                Nossa paixão por duas rodas nos move a buscar constantemente a excelência.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="text-gray-700">Atendimento 24/7 em todo território nacional</span>
+                </div>
+                <div className="flex items-center">
+                  <Award className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="text-gray-700">Certificação ISO 9001 em qualidade</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="text-gray-700">Mais de 50.000 motociclistas satisfeitos</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-600/10 rounded-3xl blur-xl"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1558264673-3dad0b3d5b85?w=600&h=400&fit=crop" 
+                alt="Motociclista na estrada" 
+                className="relative rounded-3xl w-full h-auto shadow-2xl border border-blue-200"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Market Stats Section */}
-      <section className="relative py-20 bg-white/80 backdrop-blur-sm">
+      <section className="relative py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-blue-600">
@@ -319,48 +324,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="sobre" className="relative py-20 bg-gradient-to-b from-blue-50/60 to-white/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600">
-                15 Anos Dominando as Estradas
-              </h2>
-              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                Desde 2009, a MotoSpeed tem sido pioneira em trazer as melhores motocicletas para o mercado brasileiro. 
-                Nossa paixão por duas rodas nos move a buscar constantemente a excelência.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Atendimento 24/7 em todo território nacional</span>
-                </div>
-                <div className="flex items-center">
-                  <Award className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Certificação ISO 9001 em qualidade</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Mais de 50.000 motociclistas satisfeitos</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="absolute inset-0 bg-blue-600/10 rounded-3xl blur-xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1558264673-3dad0b3d5b85?w=600&h=400&fit=crop" 
-                alt="Motociclista na estrada" 
-                className="relative rounded-3xl w-full h-auto shadow-2xl border border-blue-200"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Innovation Section */}
-      <section className="relative py-20 bg-white/80 backdrop-blur-sm">
+      <section className="relative py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-blue-600">
             Tecnologia de Ponta
@@ -408,12 +373,12 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="relative py-24 bg-gradient-to-r from-blue-600 to-red-600">
-        <div className="absolute inset-0 bg-white/10"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
             Pronto para a Aventura?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Explore nosso catálogo e encontre a moto que vai mudar sua vida
           </p>
           <Button 
@@ -430,7 +395,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer id="contato" className="relative bg-white/90 backdrop-blur-sm border-t border-blue-200 mt-20">
+      <footer id="contato" className="relative bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">

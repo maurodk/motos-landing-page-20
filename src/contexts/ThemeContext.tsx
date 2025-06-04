@@ -31,6 +31,15 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('theme', theme);
     document.documentElement.classList.toggle('dark', theme === 'dark');
+    
+    // Apply theme-specific styles to body
+    if (theme === 'dark') {
+      document.body.style.backgroundColor = '#111827'; // gray-900
+      document.body.style.color = '#f9fafb'; // gray-50
+    } else {
+      document.body.style.backgroundColor = '#ffffff'; // white
+      document.body.style.color = '#111827'; // gray-900
+    }
   }, [theme]);
 
   const toggleTheme = () => {
