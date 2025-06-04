@@ -4,6 +4,7 @@ import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clo
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import ServicesBlock from "@/components/ServicesBlock";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 // Motos populares do catálogo
 const motosPopulares = [
@@ -82,22 +83,22 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button 
               size="lg" 
-              className="group bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-600/40" 
+              className="group bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-red-600/40" 
               asChild
             >
-              <Link to="/catalogo">
-                <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
+              <Link to="/catalogo" className="transition-all duration-500 ease-in-out">
+                <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse transition-all duration-300" />
                 Ver Motos
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
               </Link>
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
-              className="group border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 bg-white/10 backdrop-blur-sm"
+              className="group border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-500 bg-white/10 backdrop-blur-sm"
             >
-              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-500" />
               Ver em Ação
             </Button>
           </div>
@@ -475,6 +476,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 };
