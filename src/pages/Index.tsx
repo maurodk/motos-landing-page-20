@@ -397,7 +397,7 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-400 font-medium">Segurança máxima em todas as condições</p>
             </div>
             
-            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-800/50 rounded-3xl p-8 hover:border-green-300/70 dark:hover:border-green-600/70 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-800/50 rounded-3xl p-8 hover:border-green-300/70 dark:hover:border-green-600/70 group-hover:shadow-2xl group-hover:shadow-green-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <Globe className="h-8 w-8 text-white" />
               </div>
@@ -405,7 +405,7 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-400 font-medium">Navegação inteligente e conectividade total</p>
             </div>
             
-            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-800/50 rounded-3xl p-8 hover:border-purple-300/70 dark:hover:border-purple-600/70 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:transform hover:scale-105">
+            <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-800/50 rounded-3xl p-8 hover:border-purple-300/70 dark:hover:border-purple-600/70 group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 hover:transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-700 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
@@ -422,7 +422,7 @@ const Index = () => {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="relative py-24 bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 overflow-hidden min-h-[400px] flex items-center">
+      <section className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 overflow-hidden">
         <div className="absolute inset-0 bg-black/30"></div>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -432,7 +432,7 @@ const Index = () => {
           <div className="absolute bottom-60 right-1/3 w-5 h-5 bg-white/25 rounded-full animate-pulse delay-1000"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 z-10 w-full">
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 z-10 w-full py-24">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-8 drop-shadow-lg">
             Pronto para a Aventura?
           </h2>
