@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import ServicesBlock from "@/components/ServicesBlock";
 
 // Motos populares do catálogo
 const motosPopulares = [
@@ -73,6 +74,10 @@ const Index = () => {
               </Link>
               <a href="#sobre" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
                 Sobre
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#servicos" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                Serviços
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a href="#contato" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
@@ -171,6 +176,11 @@ const Index = () => {
           <ChevronDown className="h-8 w-8 text-orange-400" />
         </div>
       </section>
+
+      {/* Services Block Section */}
+      <div id="servicos">
+        <ServicesBlock />
+      </div>
 
       {/* Motos Populares Section */}
       <section className="relative py-24 bg-gradient-to-b from-black to-gray-900">
