@@ -4,7 +4,6 @@ import { ArrowRight, Filter, Search, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const motos = [
   {
@@ -318,9 +317,6 @@ const Catalogo = () => {
           </div>
         </div>
       </footer>
-
-      {/* Scroll to Top Button */}
-      <ScrollToTopButton />
     </div>
   );
 };
