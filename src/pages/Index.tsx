@@ -422,7 +422,7 @@ const Index = () => {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="relative py-24 bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 overflow-hidden min-h-[400px] flex items-center">
         <div className="absolute inset-0 bg-black/30"></div>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -432,7 +432,7 @@ const Index = () => {
           <div className="absolute bottom-60 right-1/3 w-5 h-5 bg-white/25 rounded-full animate-pulse delay-1000"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 z-10">
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 z-10 w-full">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-8 drop-shadow-lg">
             Pronto para a Aventura?
           </h2>
