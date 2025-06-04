@@ -84,7 +84,7 @@ const ServicesBlock = () => {
   const currentService = services[activeService as keyof typeof services];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -95,16 +95,16 @@ const ServicesBlock = () => {
           </p>
         </div>
 
-        <Card className="bg-white shadow-xl border-0 overflow-hidden">
+        <Card className="bg-white shadow-xl border-0 overflow-hidden relative z-20">
           <Tabs value={activeService} onValueChange={setActiveService} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 bg-blue-50 border-b border-blue-100 rounded-none h-auto p-0">
+            <TabsList className="grid w-full grid-cols-4 bg-blue-50 border-b border-blue-100 rounded-none h-auto p-0 relative z-30">
               {Object.entries(services).map(([key, service]) => {
                 const IconComponent = service.icon;
                 return (
                   <TabsTrigger
                     key={key}
                     value={key}
-                    className="flex flex-col items-center py-6 px-4 rounded-none border-r border-blue-100 last:border-r-0 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:bg-blue-100"
+                    className="flex flex-col items-center py-6 px-4 rounded-none border-r border-blue-100 last:border-r-0 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:bg-blue-100 cursor-pointer relative z-40"
                   >
                     <IconComponent className="h-8 w-8 mb-2" />
                     <span className="font-semibold text-sm">{service.title}</span>
@@ -114,7 +114,7 @@ const ServicesBlock = () => {
             </TabsList>
 
             {Object.entries(services).map(([key, service]) => (
-              <TabsContent key={key} value={key} className="mt-0">
+              <TabsContent key={key} value={key} className="mt-0 relative z-20">
                 <CardContent className="p-8">
                   <div className="grid lg:grid-cols-3 gap-8">
                     {/* Conteúdo Principal */}
@@ -172,7 +172,7 @@ const ServicesBlock = () => {
 
                           <div className="space-y-3">
                             <Button 
-                              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 relative z-50"
                               onClick={() => window.open('https://wa.me/5511999998888?text=Gostaria de solicitar um orçamento para ' + service.title, '_blank')}
                             >
                               <MessageCircle className="mr-2 h-5 w-5" />
@@ -181,7 +181,7 @@ const ServicesBlock = () => {
                             
                             <Button 
                               variant="outline"
-                              className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 rounded-lg transition-all duration-300"
+                              className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 rounded-lg transition-all duration-300 relative z-50"
                               onClick={() => window.open('https://wa.me/5511999998888?text=Gostaria de agendar o serviço de ' + service.title, '_blank')}
                             >
                               <Calendar className="mr-2 h-5 w-5" />
