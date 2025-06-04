@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bike, ArrowRight, Filter, Search, Heart, Eye } from "lucide-react";
@@ -83,12 +84,12 @@ const Catalogo = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-900/20 via-black to-blue-800/20">
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-800/20 via-black to-gray-900/20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(3,81,160,0.1),transparent_70%)]"></div>
       </div>
 
       {/* Header */}
-      <header className="relative z-50 bg-black/80 backdrop-blur-md border-b border-blue-500/20">
+      <header className="relative z-50 bg-black/80 backdrop-blur-md border-b border-gray-700/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center group">
@@ -96,7 +97,7 @@ const Catalogo = () => {
                 <Bike className="h-10 w-10 text-red-500 group-hover:text-red-400 transition-all duration-300 group-hover:rotate-12" style={{ color: '#DE0039' }} />
                 <div className="absolute -inset-2 bg-red-500/20 rounded-full blur group-hover:bg-red-400/30 transition-all duration-300" style={{ backgroundColor: 'rgba(222, 0, 57, 0.2)' }}></div>
               </div>
-              <Link to="/" className="ml-3 text-3xl font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2)' }}>
+              <Link to="/" className="ml-3 text-3xl font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #4FC3F7)' }}>
                 MotoSpeed
               </Link>
             </div>
@@ -137,10 +138,10 @@ const Catalogo = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-600/20 via-black to-blue-600/20">
+      <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2, #0351A0)' }}>
+            <span className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
               NOSSO ARSENAL
             </span>
           </h1>
@@ -156,14 +157,14 @@ const Catalogo = () => {
               placeholder="Buscar por modelo ou marca..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-black/50 border border-blue-500/30 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-600 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
             />
           </div>
         </div>
       </section>
 
       {/* Filters and Catalog */}
-      <section className="relative py-12">
+      <section className="relative py-12 bg-gradient-to-b from-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Bar */}
           <div className="flex flex-wrap gap-3 mb-12 justify-center">
@@ -176,7 +177,7 @@ const Catalogo = () => {
                 className={`rounded-full transition-all duration-300 ${
                   selectedCategory === category
                     ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30"
-                    : "border-blue-500/30 text-gray-300 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-500/10"
+                    : "border-gray-600 text-gray-300 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-500/10"
                 }`}
                 style={selectedCategory === category ? { background: 'linear-gradient(to right, #0351A0, #1976D2)' } : {}}
               >
@@ -190,7 +191,7 @@ const Catalogo = () => {
             {filteredMotos.map((moto, index) => (
               <Card 
                 key={moto.id} 
-                className="group bg-gradient-to-br from-gray-900 to-black border border-blue-500/20 hover:border-blue-500/50 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105"
+                className="group bg-gray-800/50 border border-gray-700 hover:border-gray-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -222,7 +223,7 @@ const Catalogo = () => {
                 <CardHeader className="pb-3">
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors duration-300" style={{ color: 'white' }}>
+                      <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors duration-300">
                         {moto.nome}
                       </CardTitle>
                       <CardDescription className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
@@ -274,13 +275,13 @@ const Catalogo = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-gray-900 border-t border-blue-500/30 mt-20">
+      <footer className="relative bg-gray-900 border-t border-gray-600/30 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">
               <div className="flex items-center mb-6">
                 <Bike className="h-8 w-8 text-red-500 mr-3" style={{ color: '#DE0039' }} />
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2)' }}>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #4FC3F7)' }}>
                   MotoSpeed
                 </h3>
               </div>
@@ -304,7 +305,7 @@ const Catalogo = () => {
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2)' }}>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #4FC3F7)' }}>
                 Serviços
               </h3>
               <ul className="space-y-2">
@@ -327,7 +328,7 @@ const Catalogo = () => {
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2)' }}>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #4FC3F7)' }}>
                 Contato
               </h3>
               <ul className="space-y-2">
@@ -345,7 +346,7 @@ const Catalogo = () => {
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #1976D2)' }}>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #0351A0, #4FC3F7)' }}>
                 Redes Sociais
               </h3>
               <ul className="space-y-2">
