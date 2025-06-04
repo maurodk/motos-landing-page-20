@@ -84,31 +84,27 @@ const ServicesBlock = () => {
   const currentService = services[activeService as keyof typeof services];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-800 to-gray-900 relative z-10">
+    <section className="py-20 bg-gradient-to-b from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-blue-600 dark:text-white mb-4">
             Nossos Serviços Especializados
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Oferecemos manutenção completa para sua motocicleta com qualidade profissional e garantia estendida
           </p>
         </div>
 
-        <Card className="bg-gray-800/50 shadow-xl border border-gray-700 overflow-hidden relative z-20 backdrop-blur-sm">
+        <Card className="bg-white/80 dark:bg-gray-800/50 shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden relative z-20 backdrop-blur-sm">
           <Tabs value={activeService} onValueChange={setActiveService} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 bg-gray-800/80 border-b border-gray-600 rounded-none h-auto p-0 relative z-30">
+            <TabsList className="grid w-full grid-cols-4 bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-600 rounded-none h-auto p-0 relative z-30">
               {Object.entries(services).map(([key, service]) => {
                 const IconComponent = service.icon;
                 return (
                   <TabsTrigger
                     key={key}
                     value={key}
-                    className="flex flex-col items-center py-6 px-4 rounded-none border-r border-gray-600 last:border-r-0 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:bg-gray-700 cursor-pointer relative z-40 text-gray-300"
-                    style={{
-                      '--tw-gradient-from': '#0351A0',
-                      '--tw-gradient-to': '#1976D2'
-                    } as React.CSSProperties}
+                    className="flex flex-col items-center py-6 px-4 rounded-none border-r border-gray-200 dark:border-gray-600 last:border-r-0 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer relative z-40 text-gray-700 dark:text-gray-300"
                   >
                     <IconComponent className="h-8 w-8 mb-2" style={{ color: '#DE0039' }} />
                     <span className="font-semibold text-sm">{service.title}</span>
@@ -125,20 +121,20 @@ const ServicesBlock = () => {
                     <div className="lg:col-span-2">
                       <div className="flex items-center mb-6">
                         <service.icon className="h-10 w-10 mr-4" style={{ color: '#DE0039' }} />
-                        <h3 className="text-3xl font-bold text-white">{service.title}</h3>
+                        <h3 className="text-3xl font-bold text-blue-600 dark:text-white">{service.title}</h3>
                       </div>
                       
-                      <p className="text-gray-300 text-lg mb-8">
+                      <p className="text-gray-700 dark:text-gray-300 text-lg mb-8">
                         Serviço especializado em {service.title.toLowerCase()} com técnicos certificados e equipamentos de última geração.
                       </p>
 
                       <div className="space-y-4">
-                        <h4 className="text-xl font-semibold text-white mb-4">O que está incluso:</h4>
+                        <h4 className="text-xl font-semibold text-blue-600 dark:text-white mb-4">O que está incluso:</h4>
                         <div className="grid md:grid-cols-2 gap-4">
                           {service.items.map((item, index) => (
                             <div key={index} className="flex items-start">
                               <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-gray-300">{item}</span>
+                              <span className="text-gray-700 dark:text-gray-300">{item}</span>
                             </div>
                           ))}
                         </div>
@@ -147,30 +143,30 @@ const ServicesBlock = () => {
 
                     {/* Box Lateral */}
                     <div className="lg:col-span-1">
-                      <Card className="bg-gradient-to-br from-gray-800/80 to-gray-700/80 border-gray-600 sticky top-8 backdrop-blur-sm">
+                      <Card className="bg-gray-50 dark:bg-gradient-to-br dark:from-gray-800/80 dark:to-gray-700/80 border-gray-200 dark:border-gray-600 sticky top-8 backdrop-blur-sm">
                         <CardContent className="p-6">
                           <div className="text-center mb-6">
                             <div className="text-3xl font-bold mb-1" style={{ color: '#0351A0' }}>
                               A partir de {service.price}
                             </div>
-                            <p className="text-gray-400">Preço pode variar conforme modelo</p>
+                            <p className="text-gray-600 dark:text-gray-400">Preço pode variar conforme modelo</p>
                           </div>
 
                           <div className="space-y-4 mb-8">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center">
-                                <Clock className="h-5 w-5 text-gray-400 mr-2" />
-                                <span className="text-gray-300">Tempo:</span>
+                                <Clock className="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" />
+                                <span className="text-gray-700 dark:text-gray-300">Tempo:</span>
                               </div>
-                              <span className="font-semibold text-white">{service.duration}</span>
+                              <span className="font-semibold text-blue-600 dark:text-white">{service.duration}</span>
                             </div>
                             
                             <div className="flex items-center justify-between">
                               <div className="flex items-center">
-                                <Shield className="h-5 w-5 text-gray-400 mr-2" />
-                                <span className="text-gray-300">Garantia:</span>
+                                <Shield className="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" />
+                                <span className="text-gray-700 dark:text-gray-300">Garantia:</span>
                               </div>
-                              <span className="font-semibold text-white">{service.warranty}</span>
+                              <span className="font-semibold text-blue-600 dark:text-white">{service.warranty}</span>
                             </div>
                           </div>
 
@@ -189,27 +185,16 @@ const ServicesBlock = () => {
                             
                             <Button 
                               variant="outline"
-                              className="w-full font-semibold py-3 rounded-lg transition-all duration-300 relative z-50 text-white border-2 hover:text-white"
-                              style={{ 
-                                borderColor: '#0351A0',
-                                color: '#0351A0',
-                                backgroundColor: 'transparent'
-                              }}
+                              className="w-full font-semibold py-3 rounded-lg transition-all duration-300 relative z-50 text-blue-600 dark:text-white border-2 border-blue-600 dark:border-blue-400 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-600"
                               onClick={() => window.open('https://wa.me/5511999998888?text=Gostaria de agendar o serviço de ' + service.title, '_blank')}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#0351A0';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = 'transparent';
-                              }}
                             >
                               <Calendar className="mr-2 h-5 w-5" />
                               Agendar Serviço
                             </Button>
                           </div>
 
-                          <div className="mt-6 pt-6 border-t border-gray-600">
-                            <p className="text-sm text-gray-400 text-center">
+                          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
+                            <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                               <Shield className="h-4 w-4 inline mr-1" />
                               Garantia de satisfação ou seu dinheiro de volta
                             </p>
