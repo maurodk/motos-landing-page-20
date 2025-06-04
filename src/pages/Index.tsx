@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-import ServicesBlock from "@/components/ServicesBlock";
 
 // Motos populares do catálogo
 const motosPopulares = [
@@ -76,10 +75,10 @@ const Index = () => {
                 Sobre
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
               </a>
-              <a href="#servicos" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+              <Link to="/servicos" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
                 Serviços
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
+              </Link>
               <a href="#contato" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
                 Contato
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
@@ -177,10 +176,64 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Block Section */}
-      <div id="servicos">
-        <ServicesBlock />
-      </div>
+      {/* Services Preview Section */}
+      <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+              Serviços Especializados
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            Manutenção profissional para sua motocicleta com qualidade garantida e técnicos especializados
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Award className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Revisão Preventiva</h3>
+              <p className="text-gray-400 text-sm">Verificação completa para máximo desempenho</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Zap className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Sistema Elétrico</h3>
+              <p className="text-gray-400 text-sm">Diagnóstico e reparo especializado</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Motor</h3>
+              <p className="text-gray-400 text-sm">Manutenção e ajustes de motor</p>
+            </div>
+            
+            <div className="group bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                <TrendingUp className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Sistema de Freios</h3>
+              <p className="text-gray-400 text-sm">Segurança e performance garantidas</p>
+            </div>
+          </div>
+
+          <Button 
+            size="lg" 
+            className="group bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold px-8 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50" 
+            asChild
+          >
+            <Link to="/servicos">
+              Ver Todos os Serviços
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       {/* Motos Populares Section */}
       <section className="relative py-24 bg-gradient-to-b from-black to-gray-900">
