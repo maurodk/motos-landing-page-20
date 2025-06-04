@@ -1,10 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Filter, Search, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const motos = [
   {
@@ -83,21 +83,21 @@ const Catalogo = () => {
   const categories = ["Todas", ...Array.from(new Set(motos.map(moto => moto.categoria)))];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-black dark:via-gray-900 dark:to-gray-800">
+      <section className="relative pt-24 pb-16 bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-black mb-6 text-blue-600 dark:text-blue-400">
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-blue-600 dark:text-blue-400 animate-fade-in">
             NOSSO ARSENAL
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8 animate-fade-in-up">
             Cada moto é uma obra de arte em movimento. Encontre sua próxima paixão.
           </p>
           
           {/* Search Bar */}
-          <div className="max-w-md mx-auto relative">
+          <div className="max-w-md mx-auto relative animate-slide-in-left">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
@@ -111,10 +111,10 @@ const Catalogo = () => {
       </section>
 
       {/* Filters and Catalog */}
-      <section className="relative py-12 bg-white dark:bg-gray-900">
+      <section className="relative py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Bar */}
-          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          <div className="flex flex-wrap gap-3 mb-12 justify-center animate-slide-in-right">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -133,11 +133,11 @@ const Catalogo = () => {
           </div>
 
           {/* Motorcycles Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
             {filteredMotos.map((moto, index) => (
               <Card 
                 key={moto.id} 
-                className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105"
+                className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:transform hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -210,7 +210,7 @@ const Catalogo = () => {
 
           {/* No Results */}
           {filteredMotos.length === 0 && (
-            <div className="text-center py-16">
+            <div className="text-center py-16 animate-fade-in">
               <div className="text-6xl mb-4">🏍️</div>
               <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-2">Nenhuma moto encontrada</h3>
               <p className="text-gray-500 dark:text-gray-500">Tente ajustar os filtros ou termo de busca</p>
@@ -220,7 +220,7 @@ const Catalogo = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20">
+      <footer className="relative bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">
@@ -311,13 +311,16 @@ const Catalogo = () => {
             </div>
           </div>
           
-          <div className="text-center">
+          <div className="text-center mt-12 pt-8 border-t border-gray-300 dark:border-gray-600">
             <p className="text-gray-700 dark:text-gray-300 text-sm">
               © 2023 MotoSpeed. Todos os direitos reservados.
             </p>
           </div>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 };
