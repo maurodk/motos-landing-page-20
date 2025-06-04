@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
@@ -146,9 +145,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Services Section - Only "Nossos Serviços Especializados" */}
-      <ServicesBlock />
 
       {/* Enhanced Motos Populares Section */}
       <section className="relative py-24 bg-gradient-to-br from-gray-50 via-slate-100 to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden">
@@ -418,6 +414,11 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Services Section - Moved after Innovation Section */}
+      <section id="servicos">
+        <ServicesBlock />
       </section>
 
       {/* Enhanced CTA Section */}
