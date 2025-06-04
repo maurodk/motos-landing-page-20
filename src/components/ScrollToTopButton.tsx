@@ -1,24 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostra o botão assim que o usuário faz scroll para baixo
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 0) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      // Mostra o botão assim que há qualquer scroll para baixo
+      setIsVisible(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -28,18 +22,21 @@ const ScrollToTopButton = () => {
     });
   };
 
-  if (!isVisible) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
-    <Button
+    <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-2xl hover:shadow-red-600/40 transform hover:scale-110 transition-all duration-300 animate-fade-in p-0"
-      size="icon"
+      className="fixed bottom-8 right-8 z-[9999] w-12 h-12 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: '2rem',
+        zIndex: 9999
+      }}
     >
-      <ArrowUp className="h-5 w-5" />
-    </Button>
+      <ArrowUp size={20} />
+    </button>
   );
 };
 
