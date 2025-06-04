@@ -6,10 +6,11 @@ import { Button } from '@/components/ui/button';
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostra o botão quando o usuário rola para baixo
+  // Mostra o botão quando o usuário sai da seção hero
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      // A seção hero tem min-h-screen, então verificamos se passou da altura da viewport
+      if (window.pageYOffset > window.innerHeight) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
