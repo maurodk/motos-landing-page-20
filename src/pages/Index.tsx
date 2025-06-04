@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, Zap, Play, ChevronDown, TrendingUp, Award, Globe, Clock, Users, Bike, Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 // Motos populares do catálogo
 const motosPopulares = [
@@ -42,64 +43,18 @@ const motosPopulares = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 text-gray-900 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 overflow-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-white/90 via-blue-50/80 to-white/90">
+      <div className="fixed inset-0 bg-gradient-to-br from-white/90 via-blue-50/80 to-white/90 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-gray-900/90">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(3,81,160,0.05),transparent_70%)]"></div>
       </div>
 
       {/* Header */}
-      <header className="relative z-50 bg-white/80 backdrop-blur-md border-b border-blue-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center group">
-              <div className="relative">
-                <Bike className="h-10 w-10 text-red-600 group-hover:text-red-500 transition-all duration-300 group-hover:rotate-12" />
-                <div className="absolute -inset-2 bg-red-600/20 rounded-full blur group-hover:bg-red-500/30 transition-all duration-300"></div>
-              </div>
-              <h1 className="ml-3 text-3xl font-black text-blue-600">
-                MotoSpeed
-              </h1>
-            </div>
-            
-            <nav className="hidden md:flex space-x-8">
-              <Link to="/" className="text-blue-600 font-semibold relative group">
-                Início
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </Link>
-              <Link to="/catalogo" className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group">
-                Catálogo
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </Link>
-              <a href="#sobre" className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group">
-                Sobre
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <Link to="/servicos" className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group">
-                Serviços
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </Link>
-              <a href="#contato" className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group">
-                Contato
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </nav>
-            
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300">
-                Entrar
-              </Button>
-              <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/30" asChild>
-                <Link to="/catalogo">Ver Motos</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white/80 dark:from-gray-900/20 dark:via-gray-900/60 dark:to-gray-900/80"></div>
         
         {/* Background Image with Parallax Effect */}
         <div 
@@ -111,19 +66,19 @@ const Index = () => {
         ></div>
 
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="mb-8 animate-fade-in bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+          <div className="mb-8 animate-fade-in bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-              <span className="block text-blue-600">
+              <span className="block text-blue-600 dark:text-blue-400">
                 VELOCIDADE
               </span>
-              <span className="block text-blue-700">
+              <span className="block text-blue-700 dark:text-blue-300">
                 É LIBERDADE
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Descubra a adrenalina pura com nossa coleção exclusiva de motocicletas. 
-              <span className="text-blue-600 font-semibold"> Cada curva é uma nova aventura.</span>
+              <span className="text-blue-600 dark:text-blue-400 font-semibold"> Cada curva é uma nova aventura.</span>
             </p>
           </div>
 
@@ -172,7 +127,7 @@ const Index = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-blue-600" />
+          <ChevronDown className="h-8 w-8 text-blue-600 dark:text-blue-400" />
         </div>
       </section>
 
