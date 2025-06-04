@@ -453,7 +453,7 @@ const Index = () => {
       </section>
 
       {/* Enhanced Footer */}
-      <footer id="contato" className="relative bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-t-4 border-gradient-to-r from-blue-500 to-red-500 overflow-hidden">
+      <footer id="contato" className="relative bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-indigo-300/20 dark:from-blue-800/20 dark:to-indigo-700/20 rounded-full blur-3xl"></div>
